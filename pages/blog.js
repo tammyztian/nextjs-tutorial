@@ -3,8 +3,6 @@ import Layout from '../components/MyLayout'
 
 export default () => (
     <Layout>
-        <p style={{fontSize: 30, color:'purple'}}> This is About </p>
+        <p style={{fontSize: 30, color:'purple'}}> This is Blog </p>
     </Layout>
 )
-
-
