@@ -3,3 +3,5 @@ export default () => (
         <p>About Page</p>
     </div>
 )
+
+//pages need to be lowercase

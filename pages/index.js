@@ -1,7 +1,13 @@
+import Link from 'next/link'
+
 const Index = () => (
     <div>
-        <p> Hello!!!! </p>
+        <Link href="/about">
+            <h1> Go to About Page </h1>
+        </Link>
     </div>
 )
 
 export default Index
+
+//pages are lowercase
