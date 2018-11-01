@@ -1,13 +1,40 @@
 import Layout from '../components/MyLayout'
+import Link from 'next/link'
+import fetch from 'isomorphic-unfetch'
+
 //Only special directory is pages, component directory can be anything
 
-export default () => (
+const Index = (props) => (
     <Layout>
-        <p style={{fontSize: 30, color:'purple'}}> Welcome to the Main Page </p>
+        <h1>Batman TV Shows</h1>
+        <ul>
+            {props.shows.map(({show}) => (
+                <li key={show.id}>
+                    <Link as={`/p/${show.id}`} href={`/post?id=${show.id}`}>
+                        <a>{show.name}</a>
+                    </Link>
+                </li>
+            ))}
+        </ul>
     </Layout>
 )
 
+Index.getInitialProps = async function() {
+    const res = await fetch('https://api.tvmaze.com/search/shows?q=batman')
+    const data = await res.json()
+    console.log(`Show data fetch. Count ${data.length}`)
 
+    return {
+        shows: data
+    }
+}
+
+export default Index
+
+//getInitialProps fetches data and sends them as props
+
+
+//USING API FROM TVMaze
 
 //pages are lowercase
 //Styling only applied onto components, Link is a HOC wraps component to set up component with info
