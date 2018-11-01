@@ -3,7 +3,7 @@ import Link from 'next/link'
 const Index = () => (
     <div>
         <Link href="/about">
-            <h1> Go to About Page </h1>
+            <a style={{fontSize: 30, color:'red'}}> Go to About Page </a>
         </Link>
     </div>
 )
@@ -11,3 +11,4 @@ const Index = () => (
 export default Index
 
 //pages are lowercase
+//Styling only applied onto components, Link is a HOC wraps component to set up component with info
